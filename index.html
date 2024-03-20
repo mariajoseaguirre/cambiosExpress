@@ -15,10 +15,12 @@
             <p>Ingrese numero de identificación: </p>
             <input type="number" id="identificacion" name="identificacion" placeholder="DNI o pasaporte">
             <p>Seleccione su tipo de cambio: </p>
-            <input type="radio" id="cl-us" name="cl-us"> Pesos chilenos a dolares
-            <input type="radio" id="us-cl " name="us-cl"> Dolares a pesos chilenos
+            <input type="radio" id="cl-us" name="tipo-cambio" value="cl-us" checked> 
+            <label for="cl-us">Pesos chilenos a dolares</label>
+            <input type="radio" id="us-cl" name="tipo-cambio" value="us-cl"> 
+            <label for="us-cl">Dolares a pesos chilenos</label>
             <p>Ingrese monto: </p>
-            <input id="cantidad" type="number" min="1" max="1000000" placeholder="$$">
+            <input id="cantidad" type="number" min="1" max="1000000" placeholder="$$"> <br><br>
             <input type="submit" value="Convertir">
         </div>
     </form>    
