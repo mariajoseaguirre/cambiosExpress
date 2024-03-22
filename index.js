@@ -4,7 +4,6 @@ const clUsTasa = 948;
 const usClTasa = 1/948;
 
 function convertirDivisa (tipoDeCambio, cantidadDinero) {
-    console.log('argumentos',tipoDeCambio, cantidadDinero)
     if (tipoDeCambio == 'cl-Us') {
         return cantidadDinero * clUsTasa;
     } else {
@@ -18,7 +17,8 @@ formulario.addEventListener("submit", event=>{
     let numIdentificacion = document.getElementById("identificacion")
     let cantidadDinero = document.getElementById("cantidad")
     let formulario = document.getElementById("formulario")
-    if (nombreCliente.value == ''){
+
+    if (nombreCliente.value =''){
         const span = document.createElement("span")
         span.innerText = "Ingrese un nombre valido"
         formulario.appendChild(span)
@@ -43,9 +43,23 @@ formulario.addEventListener("submit", event=>{
 
 
     let divisaConvertida = convertirDivisa(tipoDeCambio, parseInt(cantidadDinero.value));
+    
     const span = document.createElement("span")
     span.innerText = `El dinero a entregar es: ${divisaConvertida.toFixed(2)}`
     formulario.appendChild(span)
+
+    
+    let datosGuardados = {
+        nombreCliente: nombreCliente.value,
+        numIdentificacion:numIdentificacion.value,
+        cantidadDinero: parseInt(cantidadDinero.value),
+        divisaConvertida: parseInt(divisaConvertida),
+    }
+    datosTransaccion.push(datosGuardados)
+
+    console.log(datosTransaccion)
+
+    localStorage.setItem('Datos', JSON.stringify(datosGuardados));
 
 })
 
